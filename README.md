@@ -22,9 +22,9 @@
         </div>
 
         <div class="choices">
-            <button id="rock" class="choice-btn">🪨 Rock</button>
-            <button id="paper" class="choice-btn">📄 Paper</button>
-            <button id="scissors" class="choice-btn">✂️ Scissors</button>
+            <button id="rock" class="choice-btn">Rock</button>
+            <button id="paper" class="choice-btn"> Paper</button>
+            <button id="scissors" class="choice-btn">Scissors</button>
         </div>
 
         <div class="messages">
