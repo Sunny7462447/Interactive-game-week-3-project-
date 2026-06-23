@@ -1,0 +1,57 @@
+// Variables to track the game state (Score)
+let playerScore = 0;
+let computerScore = 0;
+
+// DOM Elements ko select karna
+const playerScoreEl = document.getElementById('player-score');
+const compScoreEl = document.getElementById('comp-score');
+const resultMessageEl = document.getElementById('result-message');
+
+// Game ke options
+const choices = ['Rock', 'Paper', 'Scissors'];
+
+// Function 1: Computer ka random choice nikalna
+function getComputerChoice() {
+    const randomIndex = Math.floor(Math.random() * choices.length);
+    return choices[randomIndex];
+}
+
+// Function 2: Game ka main logic check karna
+function playRound(playerChoice) {
+    const computerChoice = getComputerChoice();
+    let resultText = '';
+
+    // If / Else conditions for game rules
+    if (playerChoice === computerChoice) {
+        resultText = `It's a tie! Both chose ${playerChoice}.`;
+    } else if (
+        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Paper')
+    ) {
+        playerScore++; // Variable update
+        resultText = `You win! ${playerChoice} beats ${computerChoice}.`;
+    } else {
+        computerScore++; // Variable update
+        resultText = `You lose! ${computerChoice} beats ${playerChoice}.`;
+    }
+
+    // DOM Updates (Screen par changes dikhana)
+    playerScoreEl.textContent = playerScore;
+    compScoreEl.textContent = computerScore;
+    resultMessageEl.textContent = resultText;
+}
+
+// Event Listeners (User clicks ko react karna)
+document.getElementById('rock').addEventListener('click', function() {
+    playRound('Rock');
+});
+
+document.getElementById('paper').addEventListener('click', function() {
+    playRound('Paper');
+});
+
+document.getElementById('scissors').addEventListener('click', function() {
+    playRound('Scissors');
+});
+
